@@ -1,6 +1,6 @@
 # ZivaAssignment
 
-**ZivaServiceTrackerAssignment** - Service Fabric architecture
+**ZivaServiceTrackerAssignment** - Service Fabric architecture.</br>
 **WebService** - Asp .NET Core web app including authentication and comsuming of data from both Fitbit & Strava APIs.
 
 ## Installation
