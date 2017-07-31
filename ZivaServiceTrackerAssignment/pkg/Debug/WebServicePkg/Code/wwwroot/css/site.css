@@ -1,0 +1,96 @@
+﻿body {
+    background-color: #F6F6F6;
+    height: 100vh;
+}
+
+
+.customWrapper {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    padding: 75px 150px 0 150px;
+}
+
+.contentBox {
+    background-color: #fcfcfc;
+    border: 1px solid #e1e1e1;
+    width: 100%;
+}
+
+.pageTitle { font-family: 'Rajdhani', sans-serif; }
+
+
+.navbar {
+    background-color: #363636;
+    border-bottom: 5px solid #0592A7;
+    height: 75px;
+}
+
+
+#navRow a {
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    text-decoration: none;
+}
+
+#navRow a.menuItem { padding-top: 5px; }
+
+.pageTitle {
+    color: #343333;
+    font-family: 'Rubik', sans-serif;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+
+.loginMethodBox {
+    background-color: white;
+    border: 1px solid #e8e8e8;
+    color: #343333;
+    Cursor: pointer;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.loginMethodBox:hover {
+    border: 1px solid #0592A7;
+    text-decoration: none;
+}
+
+
+.loginImg {
+    height: 75px;
+    margin: 20px auto;
+}
+
+.profileStatBox {
+    background-color: white;
+    border: 1px solid #e8e8e8;
+    color: #343333;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.statIcon {
+    font-size: 20px;
+    /*text-align: center;
+    margin-left: 5px;*/
+}
+
+.statTitle {
+    color: #343333;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.statResult {
+    color: #343333;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+}
+
+
+@media screen and (max-width: 720px) {
+    .customWrapper { padding: 75px 50px 0 50px; }
+}

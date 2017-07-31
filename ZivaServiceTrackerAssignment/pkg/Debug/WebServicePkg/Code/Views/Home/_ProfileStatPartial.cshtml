@@ -1,0 +1,17 @@
+﻿@model string[]
+
+@*0 = Icon
+1 = Title
+2 = Result
+3 = Unit*@
+
+<div class="col-md-12 profileStatBox">
+    <div class="row">
+        <div class="col-xs-6 text-left">
+            <i style="font-size: 20px; margin-left: 5px; margin-right: 5px; text-align: center; width: 20px;" class="statIcon fa @Model[0]"></i> <span class="statTitle">@Model[1]</span>
+        </div>
+        <div class="col-xs-6 text-left">
+            <span class="statResult">@Model[2] @Model[3]</span>
+        </div>
+    </div>
+</div>

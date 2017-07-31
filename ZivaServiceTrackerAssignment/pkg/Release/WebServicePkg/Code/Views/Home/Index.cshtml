@@ -1,0 +1,19 @@
+﻿<div class="row" style="width: 100%">
+    <div class="col-xs-12 contentBox" style="text-align: center">
+        <div class="row">
+            <h1 class="col-xs-12 pageTitle" style="text-align: left">Choose your login method</h1>
+        </div>
+        <div class="row">
+            <a class="col-md-4 col-md-offset-1 loginMethodBox" asp-controller="FitBit" asp-action="Authorize">
+
+                <img class="loginImg" src="~/images/FitbitLogo.svg"/>
+                <h3>FitBit</h3>
+            </a>
+            <a class="col-md-4 col-md-offset-2 loginMethodBox" asp-controller="Strava" asp-action="CallBack">
+
+                <img class="loginImg" src="~/images/StravaLogo.svg"/>
+                <h3>Strava</h3>
+            </a>
+        </div>
+    </div>
+</div>

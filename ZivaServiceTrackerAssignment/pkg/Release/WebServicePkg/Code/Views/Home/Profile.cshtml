@@ -1,0 +1,71 @@
+﻿@using WebService.Models
+@using WebService.Models.DatabaseModels
+@model WebService.Models.DatabaseModels.UserStats
+
+
+@{
+    var subTitleColor = Model.ProfileType == ProfileType.FitBit ? "#0592A7" : "#EF4902";
+
+    var genderIcon = Model.Gender == "MALE" ? "fa-male" : "fa-female";
+
+    var weightUnit = Model.UnitType == UnitType.Metric ? "Kgs" : "Pounds";
+    var heightUnit = Model.UnitType == UnitType.Metric ? "cms" : "foot";
+}
+
+<div class="row" style="width: 100%">
+    <div class="col-xs-12 contentBox" style="text-align: center">
+        <div class="row">
+            <h1 class="col-xs-12 pageTitle text-left" style="margin-bottom: 0">@Model.Name</h1>
+            <h4 class="col-xs-12 pageTitle text-left" style="color: @subTitleColor; margin-top: 0;">@Model.ProfileType <span style="color: #363636">- @Model.UserId</span></h4>
+        </div>
+
+        <div class="row" style="padding: 10px">
+            @Html.Partial("~/Views/Home/_ProfileStatPartial.cshtml", new[] {genderIcon, "Gender", Model.Gender, ""})
+            @Html.Partial("~/Views/Home/_ProfileStatPartial.cshtml", new[] {"fa-birthday-cake", "Date of Birth", Model.DateOfBirth.ToString("d"), ""})
+            @Html.Partial("~/Views/Home/_ProfileStatPartial.cshtml", new[] {"fa-long-arrow-up", "Height", Model.Height.ToString(), heightUnit})
+            @Html.Partial("~/Views/Home/_ProfileStatPartial.cshtml", new[] {"fa-balance-scale", "Weight", Model.Weight.ToString(), weightUnit})
+        </div>
+        
+        <div class="row" style="margin-bottom: 20px;">
+            <a  id="uploadBtn" class="btn">Upload Stats</a>
+        </div>
+      
+    </div>
+</div>
+
+
+<script>
+
+    $(document)
+        .ready(function () {
+
+            $(document)
+                .on("click",
+                "#uploadBtn",
+                function () {
+                    $('#uploadBtn').html('Uploading...');
+                    $('#uploadBtn').attr('disabled', 'disabled');
+
+                    var model = @Html.Raw(Json.Serialize(Model));
+                    $.ajax({
+                        type: "POST",
+                        data: JSON.stringify(model),
+                        url: "/api/userstats",
+                        contentType: "application/json",
+                        success: function (reponse) {   
+                            if (reponse.success) {
+                                $('#uploadBtn').html('Stats uploaded!');
+                            } else {
+                                $('#uploadBtn').html(response.message);
+                            }
+                        },
+                        error: function(a, b, c) {
+                            $('#uploadBtn').html(c);
+                        }
+                    });
+
+                });
+
+        });
+</script>
+
